@@ -1,0 +1,21 @@
+{
+    "name": "remade/flutterwave-php",
+    "description": "Flutterwave Library",
+    "type": "library",
+    "require": {
+      "vlucas/valitron": "^1.3",
+      "guzzlehttp/guzzle": "^6.2"
+    },
+    "authors": [
+      {
+        "name": "Remade",
+        "email": "mail4remi@gmail.com"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Flutterwave\\": "src/"
+      }
+  },
+  "minimum-stability": "dev"
+}
