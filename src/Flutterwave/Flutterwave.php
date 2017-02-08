@@ -1,8 +1,8 @@
 <?php
 
-namespace Flutterwave;
+namespace Remade\Flutterwave;
 
-use Flutterwave\Exceptions\IncompleteParametersException;
+use Remade\Flutterwave\Exceptions\IncompleteParametersException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -175,14 +175,21 @@ class Flutterwave{
     }
 
     /**
-     * Add New Endpoint
+     * Add new Endpoint
      *
-     * @param $name
-     * @param $meta
+     * @param Endpoint $endpoint
      * @return $this
      */
-    public function setEndpoint($name, $meta){
-        $this->endpoints[$name] = $meta;
+    public function addNewEndpoint(Endpoint $endpoint){
+
+        $endpoint_definition = [
+            'method'        => $endpoint->getMethod(),
+            'url'           => $endpoint->getUrl(),
+            'validation'    => $endpoint->getValidation(),
+            'encrypt'       => $endpoint->getEncrypt(),
+        ];
+
+        $this->endpoints[$endpoint->getName()] = $endpoint_definition;
         return $this;
     }
 

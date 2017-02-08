@@ -1,6 +1,6 @@
 <?php
 
-namespace Flutterwave\Exceptions;
+namespace Remade\Flutterwave\Exceptions;
 
 use Exception;
 
