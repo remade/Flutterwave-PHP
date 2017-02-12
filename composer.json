@@ -20,7 +20,7 @@
     ],
     "autoload": {
       "psr-4": {
-        "Remade\\Flutterwave\\": "src/"
+        "Remade\\": "src/"
       }
     },
     "autoload-dev": {

@@ -26,6 +26,16 @@ class Flutterwave{
             ],
         ],
 
+        'accountEnquiry' => [
+            'url'           => 'pay/resolveaccount',
+            'validation'    => [
+                'destbankcode'   => ['required'],
+                'recipientaccount' => ['required'],
+                'merchantid' => ['required']
+            ],
+            'encrypt'       => ['destbankcode', 'recipientaccount']
+        ],
+
         'verifyBVN' => [
             'url'           => 'bvn/verify',
             'validation'    => [
@@ -73,6 +83,15 @@ class Flutterwave{
         $this->merchantKey = $merchantKey;
     }
 
+    /**
+     * Make a Call to defined endpoints
+     *
+     * @param $method
+     * @param $arguments
+     * @return array|mixed|\Psr\Http\Message\ResponseInterface
+     * @throws IncompleteParametersException
+     * @throws \Exception
+     */
     public function __call($method, $arguments){
         //Check if method exist in aliases or endpoint definition
         if(!isset($this->endpoints[$method]) && !in_array($method, $this->aliases)){
